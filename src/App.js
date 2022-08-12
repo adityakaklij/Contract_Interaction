@@ -2,6 +2,7 @@ import './App.css';
 import {useEffect , useState} from "react"
 import Page from './Page';
 import { AppContext } from './Context/AppContext';
+import Post from './Post';
 
 function App() {
 
@@ -42,7 +43,7 @@ function App() {
         <AppContext.Provider value={{account}}>
           <Page/>
           <p> Connected as : {account}</p>
-          {console.log("Your address is",account)}
+          <Post/>
           </AppContext.Provider>
         </>
       )

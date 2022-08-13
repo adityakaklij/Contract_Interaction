@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import { ABI, contractAddress } from './constants/data'
 import { AppContext } from './Context/AppContext'
 import Post from './Post'
+import { VotingContext } from './extra';
 
 function Page() {
   
@@ -31,8 +32,10 @@ function Page() {
     for(let i = 0; i < counter.toString(); i ++){
 
         const tweetStruct = await contractInstance.userArr(i);
+        const tokenMetada = await fetch(tweetStruct).then((response) => response.json())
+        console.log("Tweet struct:- ", tokenMetada)
         arr1.push(tweetStruct)
-        console.log("UseState posts",posts.str)
+        // console.log("UseState posts",posts.str)
         // console.log( `User address ${i}:- ` , tweetStruct.userAddres.toString())
         // console.log(`User Array string ${i}:- `, tweetStruct.str);
     }
@@ -49,8 +52,8 @@ function Page() {
     }
 
     useEffect(() => {
-        // getBtn()
-    },[keyCounter])
+            // getBtn()
+    },[])
 
     
 

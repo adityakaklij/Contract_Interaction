@@ -1,4 +1,7 @@
-export const contractAddress = "0x0560DFDBf1D66bCCFe985ae41473d5A7B87779c2"
+// export const contractAddress = "0x0560DFDBf1D66bCCFe985ae41473d5A7B87779c2"
+//Contract for the IPFS string //
+export const contractAddress = "0xBE52dA7177d9563408681d2555D83D285534d460" // IPFS
+
 export const ABI = [
 	{
 		"inputs": [

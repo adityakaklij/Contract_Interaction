@@ -1,0 +1,15 @@
+npm i ipfs-http-client
+npm i ethers
+npm install web3.storage
+npm i minimisy
+npm i mime-types
+npm install -g metacollin/geobuf
+
+
+npm i nft.storage
+
+https://ipfs.io/ipfs/CID.
+
+//Harmony github link.
+https://docs.harmony.one/home/developers/tutorials/ipfs-filecoin/using-nftstorage
+https://github.com/longfeiWan9/harmony-nft-demo/blob/master/src/components/MintNFT.js

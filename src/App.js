@@ -1,13 +1,19 @@
-import './App.css';
+
 import {useEffect , useState} from "react"
 import Page from './Page';
 import { AppContext } from './Context/AppContext';
 import Post from './Post';
+import './CSS/App.css'
+import GetNFT from "./ProfileNFT/GetNFT";
+import MoralisIPFS from "./ProfileNFT/MoralisIPFS";
+import Harmony from "./ProfileNFT/Harmony";
+
 
 function App() {
 
   const [isWalletInstalled, setIsWalletInstalled] = useState(false);
   const [account, setAccount] = useState(null);
+  
 
   useEffect( () =>{
     if(window.ethereum){
@@ -41,9 +47,13 @@ function App() {
       return(
         <>
         <AppContext.Provider value={{account}}>
+
           <Page/>
           <p> Connected as : {account}</p>
           <Post/>
+          {/* <GetNFT/> */}
+          {/* <MoralisIPFS/> */}
+          <Harmony/>
           </AppContext.Provider>
         </>
       )

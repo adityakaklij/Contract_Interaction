@@ -5,7 +5,6 @@ import { useContext } from 'react'
 import { ABI, contractAddress } from './constants/data'
 import { AppContext } from './Context/AppContext'
 import Post from './Post'
-import { VotingContext } from './extra';
 
 function Page() {
   
@@ -32,9 +31,16 @@ function Page() {
     for(let i = 0; i < counter.toString(); i ++){
 
         const tweetStruct = await contractInstance.userArr(i);
-        const tokenMetada = await fetch(tweetStruct).then((response) => response.json())
-        console.log("Tweet struct:- ", tokenMetada)
-        arr1.push(tweetStruct)
+
+        const tokenMetada = await fetch(tweetStruct.str)
+        const jsonData = await tokenMetada.json()
+        console.log("Tweet struct NAME:- ", jsonData.name)
+        console.log("Tweet struct IMAGE:- ", jsonData.image)
+        console.log("Tweet struct DESCRIPTION:- ", jsonData.description)
+        arr1.push([jsonData.name ,jsonData.description])
+
+        // arr1.push(tweetStruct) // It's a old, directly fetching from the blockchain  
+
         // console.log("UseState posts",posts.str)
         // console.log( `User address ${i}:- ` , tweetStruct.userAddres.toString())
         // console.log(`User Array string ${i}:- `, tweetStruct.str);
@@ -74,8 +80,10 @@ function Page() {
         {posts.map(posts =>(
             <Post
             // key = {posts.str}
-            data1 = {posts.userAddres.toString()}
-            data2 = {posts.str}
+            // data1 = {posts.userAddres.toString()} // OLD retriving from the blockchain.
+            // data2 = {posts.str} // OLD retriving from the blockchain.
+            data1 = {posts[0]}
+            data2 = {posts[1]}
             />
 
         ))}

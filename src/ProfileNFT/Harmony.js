@@ -30,11 +30,13 @@ function Harmony() {
             name:account,
             description: tweetData,
             image:inputFile
+            
         });
 
         setMetaDataURl(getIPFSGatewayURL(metaData.url));
         console.log("Metadata:- ", metaData);
         previewNFT(metaData)
+        MetaTrx(metaData)
         return metaData
     } catch (error) {
         alert(error)
@@ -56,23 +58,18 @@ const previewNFT = (metaData) =>{
     event.preventDefault()
     setUploadFile(event.target.files[0])
   }
-
+  
+  const MetaTrx = async(metaData) =>{
+    // It's working properly.
+        const createtweet = await contractInstance.createTweet(getIPFSGatewayURL(metaData.url));
+        await createtweet.wait()
+        window.alert("Tweet created :)")
+  }
   const mintNFTToken = async(event , uploadedFile) =>{
     event.preventDefault()
     const metadata = await uploadNFTContent(uploadFile)
-    
-    console.log("Image View:- ",imageView )
-    // const createTweet = await contractInstance.createTweet(metaDataURL);
-    // await createTweet.wait()
-    // window.alert("Tweet created :)")
-    // metaDataURL
-    //2. Mint a NFT token on Harmony
-    // const mintNFTTx = await sendTxToHarmony(metaData);
-  }
-  ////////////////////
-  ////////////////////
-  //Contract Integration
-  
+
+  } 
 
   
     return (

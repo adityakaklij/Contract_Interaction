@@ -18,7 +18,6 @@ function Harmony() {
   const [uploadFile ,setUploadFile] = useState()
   const [metaDataURL, setMetaDataURl] = useState()
   const [imageView, setImageView] = useState();
-  const [uploadedFile, setUploadedFile] = useState();
   const [tweetData, setTweetData]= useState()
   const {account} = useContext(AppContext)
 

@@ -5,6 +5,7 @@ import { AppContext } from './Context/AppContext';
 import Post from './Post';
 import './CSS/App.css'
 import Harmony from "./ProfileNFT/Harmony";
+import CreateProfile from "./ProfileNFT/CreateProfile";
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           <p> Connected as : {account}</p>
           <Post/>
           <Harmony/>
+          <CreateProfile/>
           </AppContext.Provider>
         </>
       )

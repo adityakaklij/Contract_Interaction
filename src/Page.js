@@ -6,6 +6,7 @@ import { ABI, contractAddress } from './constants/data'
 import { AppContext } from './Context/AppContext'
 import Post from './Post'
 
+
 function Page() {
   
   const {account} = useContext(AppContext)
